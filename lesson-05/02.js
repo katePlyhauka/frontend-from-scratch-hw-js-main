@@ -40,7 +40,7 @@ const gallery = {
 function updateGallery(object, name, newMean) {
   let key = name
   if (key in object) {
-    object[key]=object[key] + newMean
+    object[key]=newMean
   }
   else {
     object[key]  = newMean
@@ -48,7 +48,7 @@ function updateGallery(object, name, newMean) {
   
 }
 
-updateGallery(gallery, 'The Persistence of Memory', 'Salvador Dali')
+updateGallery(gallery, 'Mona Lisa', 'Leonardo da Vinci, 1503-1506')
 console.log(gallery);
 
 
