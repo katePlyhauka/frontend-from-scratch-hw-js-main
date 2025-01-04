@@ -19,8 +19,7 @@ const game = {
     let key = resource
     if (key in game.resources) {
         this.resources[key]=this.resources[key]+amount
-
-    return this.resource}
+    }
     else {
       console.log("Invalid resource");
     }
@@ -28,7 +27,7 @@ const game = {
   }
 
 
-game.addResource("hhhh", 50);
+game.addResource("gold", 50);
 console.log(game);
 
 
