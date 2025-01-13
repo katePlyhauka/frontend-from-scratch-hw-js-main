@@ -1,5 +1,6 @@
 /*
-В этом задании вам предстоит разработать интерактивный слайдер, который позволит пользователю переключаться между созданными нейросетью изображениями веб-технологий.
+В этом задании вам предстоит разработать интерактивный слайдер, который позволит пользователю переключаться между созданными нейросетью 
+изображениями веб-технологий.
 Изучите файл index.html. В этом задании надо будет работать с секцией "Урок 6". Разметка уже написано - нужно добавить только js-код.
 
 Задание:
@@ -17,3 +18,32 @@ const WEB_TECH_IMAGES = [
   'https://production-it-incubator.s3.eu-central-1.amazonaws.com/file-manager/Image/c8a1f4a6-1337-4899-bdfd-a8c9c7bb806a_css-magic-logo.jpg',
   'https://production-it-incubator.s3.eu-central-1.amazonaws.com/file-manager/Image/784380b9-6937-42a6-bdfe-869835820234_html-magic-logo.jpg',
 ]
+
+const buttonNext = document.getElementById("next-button")
+
+
+buttonNext.addEventListener('click', function () {
+  const img = document.getElementById('web-tech-image')
+  if (img.src === WEB_TECH_IMAGES[0]) {
+    img.src = WEB_TECH_IMAGES[1]}
+    else if (img.src === WEB_TECH_IMAGES[1]) {
+      img.src = WEB_TECH_IMAGES[2]}
+      else if (img.src === WEB_TECH_IMAGES[2]) {
+        img.src = WEB_TECH_IMAGES[0]
+      }
+})
+
+const buttonPrev = document.getElementById("prev-button")
+
+buttonPrev.addEventListener('click', function () {
+  const img = document.getElementById('web-tech-image')
+  if (img.src === WEB_TECH_IMAGES[0]) {
+    img.src = WEB_TECH_IMAGES[2]}
+    else if (img.src === WEB_TECH_IMAGES[2]) {
+      img.src = WEB_TECH_IMAGES[1]}
+      else if (img.src === WEB_TECH_IMAGES[1]) {
+        img.src = WEB_TECH_IMAGES[0]
+      }
+})
+
+
