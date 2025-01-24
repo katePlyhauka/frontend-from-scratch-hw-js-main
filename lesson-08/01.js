@@ -68,3 +68,18 @@ clearCartButton.addEventListener('click', function () {
 })
 
 // Твой код:
+
+
+petShop.addEventListener("click", function(event){
+  const targetElement=event.target.id
+  if (cart.length<=2) {
+    cart.push(targetElement) 
+    cartList.append(cart)
+    
+  }
+  else if (cart.length>2){
+  messageBox.textContent='Вы не можете добавить более 3 питомцев'
+  }
+  updateCartDisplay()
+  
+})
