@@ -27,21 +27,21 @@ const filter = (array, callback) => {
   const newArr=[]
   for (let i=0; i<array.length; i++) {
     const element = array[i] 
-    if (callback(element)) {
-        newArr.push(element)
+    if (callback(element, i)) {
+    newArr.push(element)
     }
-    }
+  }
   return newArr
 }
 
-const oddNumbers =(element, index) => {
-  if (element % 2 !== 0 && element>0) {
-    return true
-}
-}
+const numbers = ['house', 'house', 'dom', 'uhyg']
+
+const oddNumbers = filter(numbers, (element, index) => {
+  return element.length > 3 && numbers.indexOf(element) === index
+});
 
 
-console.log(filter([1, 2, 3, 4, 5], oddNumbers));
+console.log(oddNumbers);
 
 
 
