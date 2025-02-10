@@ -1,5 +1,6 @@
 /*
-  Цель задания: Разработать функционал для удаления фильма из списка с использованием паттерна MVC. После удаления фильма, необходимо отобразить сообщение "Фильм успешно удалён!" в message-box
+  Цель задания: Разработать функционал для удаления фильма из списка с использованием паттерна MVC. После удаления фильма, необходимо отобразить 
+  сообщение "Фильм успешно удалён!" в message-box
 
   При возникновении сложностей можете ознакомиться с пошаговым планом реализации ниже, но лучше попробовать сначала самостоятельно 🧙‍♂️
 
@@ -29,7 +30,9 @@ const model = {
     this.movies.push(newMovie)
     view.renderMovies(this.movies)
   },
-  // your code
+  deleteMovies (moviesId) {
+this.movies=this.movies.filter((movie)=>movie.id !== moviesId)
+view.renderMovies(model.movies)}, // your code
 }
 
 const view = {
@@ -50,7 +53,14 @@ const view = {
       inputDescription.value = ''
     })
 
-    // your code
+    const ul = document.querySelector('.list')  // your code
+    ul.addEventListener('click', function (event) {
+      if (event.target.classList.contains('delete-button')) {
+        const moviesId = +event.target.parentElement.id
+        
+        controller.deleteMovies(moviesId)
+      }
+    })
   },
   renderMovies(movies) {
     const list = document.querySelector('.list')
@@ -90,7 +100,11 @@ const controller = {
       view.displayMessage('Заполните все поля!', true)
     }
   },
-  // your code
+  deleteMovies(moviesId) {
+    model.deleteMovies(moviesId)
+    const messageBox = document.querySelector('.message-box')
+    messageBox.textContent = "Фильм успешно удалён!"
+  }// your code
 }
 
 function init() {
